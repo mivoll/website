@@ -1,13 +1,9 @@
+// routes/index.tsx or similar
 import { createFileRoute } from "@tanstack/react-router";
+import ComingSoon from "../pages/comingsoon";
 
 export const Route = createFileRoute("/")({
-  component: Index,
+  component: () => (
+    <ComingSoon />
+  ),
 });
-
-function Index() {
-  return (
-    <div className="p-2">
-      <h3>Welcome Home!</h3>
-    </div>
-  );
-}
