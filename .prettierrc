@@ -1,4 +1,5 @@
 {
   "printWidth": 160,
-  "plugins": ["@ianvs/prettier-plugin-sort-imports"]
+  "plugins": ["@ianvs/prettier-plugin-sort-imports"],
+  "tabWidth": 2
 }
