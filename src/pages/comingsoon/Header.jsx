@@ -25,13 +25,21 @@ export default function Header() {
           <div className="flex items-center justify-center gap-40">
             <img src={mivollLogo} alt="mivoll logo" width="65px" />
             <div className="flex gap-40">
-              <a href="/">Ana Sayfa</a>
-              <a href="/">Hakkımızda</a>
-              <a href="/">Hizmetlerimiz</a>
-              <a href="/">Portföy</a>
+              <a href="/">
+                <span className="font-montserrat font-bold">Ana Sayfa</span>
+              </a>
+              <a href="/">
+                <span className="font-rem font-bold">Hakkımızda</span>
+              </a>
+              <a href="/">
+                <span className="font-montserrat font-bold">Hizmetlerimiz</span>
+              </a>
+              <a href="/">
+                <span className="font-montserrat font-bold">Portföy</span>
+              </a>
             </div>
 
-            <div className="text-[#D2FF14] border bg-[#1D1E2480] border-[#D2FF14] rounded-full px-4 shadow-black">
+            <div className="font-montserrat font-bold text-[#D2FF14] border bg-[#1D1E2480] border-[#D2FF14] rounded-full px-5 shadow-black flex text-center shadow-md/40">
               <a href="/">İletişim</a>
             </div>
           </div>
