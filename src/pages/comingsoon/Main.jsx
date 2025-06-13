@@ -1,10 +1,17 @@
 import React, { useState } from "react";
+import Confetti from "react-confetti";
+import { useWindowSize } from "react-use";
 
 export default function Main() {
   const [formData, setFormData] = useState({
     message: "",
     email: "",
   });
+
+  const { screenWidth, screenHeight } = useWindowSize();
+
+  const [isNotificationVisible, setNotificationVisible] = useState(false);
+  const [isErrorNotificationVisible, setErrorNotificationVisible] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -14,9 +21,33 @@ export default function Main() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/info@mivoll.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success === "true") {
+        // ✅ Mail was sent successfully
+        setNotificationVisible(true);
+      } else {
+        // ❌ Something went wrong
+        console.error("FormSubmit error:", result);
+        setErrorNotificationVisible(true);
+      }
+    } catch (error) {
+      console.error("Network or server error:", error);
+      // alert("A network error occurred. Please try again.");
+      setErrorNotificationVisible(true);
+    }
   };
 
   return (
@@ -58,6 +89,23 @@ export default function Main() {
           Gönder
         </button>
       </form>
+
+      {/* mail sent confirmation notification */}
+      {isNotificationVisible && (
+        <div>
+          <Confetti width={screenWidth} height={screenHeight} gravity={0.03} />
+          <div className="bg-black/7 text-[#cccccc] fixed top-1/8 tranform translate-x-[-50%] border border-[#D2FF1447] items-center justify-center rounded-4xl">
+            <h3 className="font-rem font-bold text-3xl px-4 pt-6">Teşekkürler!</h3>
+            <p className="font-rem text-2xl px-4 leading-7">Mailiniz gönderilmiştir 🚀 </p>
+            <p className="font-rem text-xl px-4 pb-6">Size en kısa zamanda dönüş sağlayacağız.</p>
+          </div>
+        </div>
+      )}
+      {isErrorNotificationVisible && (
+        <div className="bg-black/7 text-[#cccccc] fixed top-1/8 border border-[#D2FF1447] items-center justify-center rounded-4xl ">
+          <p className="font-rem text-2xl px-4 py-6">Bir şeyler ters gitti.. Lütfen daha sonra tekrar deneyin.</p>
+        </div>
+      )}
     </main>
   );
 }
