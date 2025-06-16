@@ -75,22 +75,22 @@ export default function Main() {
       {/* Form */}
       <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-4 lg:gap-8 mt-16">
         <input
-          type="text"
-          name="message"
-          placeholder="Mesajınızı Giriniz"
-          value={formData.message}
-          onChange={handleChange}
-          className="bg-[#101114] border-4 border-[#3a3a3a] text-white placeholder:text-[#7a7a7a]
-          px-6 py-1.5 lg:py-4 rounded-xl w-72 focus:outline-none border-b-0 border-l-0 sm:py-20"
-        />
-        <input
           type="email"
           name="email"
           placeholder="Mail Adresi"
           value={formData.email}
           onChange={handleChange}
           className="bg-[#101114] border-4 border-[#3a3a3a] text-white placeholder:text-[#7a7a7a]
-          px-6 py-1.5 lg:py-4 rounded-xl w-72 focus:outline-none border-b-0 border-l-0"
+          px-6 py-1.5 md:py-4 lg:py-4 rounded-xl w-72 focus:outline-none border-b-0 border-l-0"
+        />
+        <textarea
+          type="text"
+          name="message"
+          placeholder="Mesajınızı Giriniz"
+          value={formData.message}
+          onChange={handleChange}
+          className="bg-[#101114] border-4 border-[#3a3a3a] text-white placeholder:text-[#7a7a7a]
+          px-6 pb-20 pt-4 md:py-1 lg:py-1 rounded-xl w-72 focus:outline-none border-b-0 border-l-0 resize-none"
         />
 
         <button
@@ -120,7 +120,6 @@ export default function Main() {
       {
         isNotificationVisible && (
           <div>
-            <Confetti width={screenWidth} height={screenHeight} gravity={0.03} />
             <Confetti width={screenWidth} height={screenHeight} gravity={0.08} />
             <div className="bg-black/7 text-[#cccccc] fixed top-1/8 tranform translate-x-[-50%] border border-[#D2FF1447] items-center justify-center rounded-4xl">
               <h3 className="font-rem font-bold text-3xl px-4 pt-6">Teşekkürler!</h3>
