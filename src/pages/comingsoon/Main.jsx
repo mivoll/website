@@ -1,6 +1,10 @@
-import React, { useState } from "react";
 import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
+import { useState } from "react";
+import { useNotification } from "./store";
+import logoInstagram from "../../assets/instagram.svg";
+import logoFaceboo from "../../assets/facebook.svg";
+import logoLinkedin from "../../assets/linkedin.svg";
 
 export default function Main() {
   const [formData, setFormData] = useState({
@@ -10,8 +14,10 @@ export default function Main() {
 
   const { screenWidth, screenHeight } = useWindowSize();
 
-  const [isNotificationVisible, setNotificationVisible] = useState(false);
-  const [isErrorNotificationVisible, setErrorNotificationVisible] = useState(false);
+  const isNotificationVisible = useNotification((state) => state.isNotificationVisible)
+  const setNotificationVisible = useNotification((state) => state.setNotificationVisible);
+  const isErrorNotificationVisible = useNotification((state) => state.isErrorNotificationVisible);
+  const setErrorNotificationVisible = useNotification((state) => state.setErrorNotificationVisible);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -52,7 +58,10 @@ export default function Main() {
 
   return (
     <main className="flex flex-col items-center justify-center text-center text-white px-4">
-      <h1 className="font-rem text-[#D2FF14] text-[90px] sm:text-[120px] mt-48">COMING SOON</h1>
+      <h1 className={`${isNotificationVisible && 'animate-[heartbeat-text_1.5s_ease-in-out_infinite]'}
+        font-rem text-[#D2FF14] text-[90px] sm:text-[120px] mt-48`}>
+        ÇOK YAKINDA
+      </h1>
 
       <div className="font-rem text-[#f0f0f0] text-lg mt-5 leading-6">
         <p>
@@ -90,22 +99,42 @@ export default function Main() {
         </button>
       </form>
 
+      {/* social media */}
+      <div className="mt-12 w-screen flex items-center justify-center gap-16">
+        <a href="www.google.com">
+          <img src={logoInstagram} alt="instagram logo" />
+
+        </a>
+        <a href="www.google.com">
+          <img src={logoFaceboo} alt="instagram logo" />
+        </a>
+
+        <a href="www.google.com">
+          <img src={logoLinkedin} alt="instagram logo" />
+        </a>
+      </div>
+
       {/* mail sent confirmation notification */}
-      {isNotificationVisible && (
-        <div>
-          <Confetti width={screenWidth} height={screenHeight} gravity={0.03} />
-          <div className="bg-black/7 text-[#cccccc] fixed top-1/8 tranform translate-x-[-50%] border border-[#D2FF1447] items-center justify-center rounded-4xl">
-            <h3 className="font-rem font-bold text-3xl px-4 pt-6">Teşekkürler!</h3>
-            <p className="font-rem text-2xl px-4 leading-7">Mailiniz gönderilmiştir 🚀 </p>
-            <p className="font-rem text-xl px-4 pb-6">Size en kısa zamanda dönüş sağlayacağız.</p>
+      {
+        isNotificationVisible && (
+          <div>
+            <Confetti width={screenWidth} height={screenHeight} gravity={0.03} />
+            <Confetti width={screenWidth} height={screenHeight} gravity={0.08} />
+            <div className="bg-black/7 text-[#cccccc] fixed top-1/8 tranform translate-x-[-50%] border border-[#D2FF1447] items-center justify-center rounded-4xl">
+              <h3 className="font-rem font-bold text-3xl px-4 pt-6">Teşekkürler!</h3>
+              <p className="font-rem text-2xl px-4 leading-7">Mailiniz gönderilmiştir 🚀 </p>
+              <p className="font-rem text-xl px-4 pb-6">Size en kısa zamanda dönüş sağlayacağız.</p>
+            </div>
           </div>
-        </div>
-      )}
-      {isErrorNotificationVisible && (
-        <div className="bg-black/7 text-[#cccccc] fixed top-1/8 border border-[#D2FF1447] items-center justify-center rounded-4xl ">
-          <p className="font-rem text-2xl px-4 py-6">Bir şeyler ters gitti.. Lütfen daha sonra tekrar deneyin.</p>
-        </div>
-      )}
-    </main>
+        )
+      }
+      {
+        isErrorNotificationVisible && (
+          <div className="bg-black/7 text-[#cccccc] fixed top-1/8 border border-[#D2FF1447] items-center justify-center rounded-4xl ">
+            <p className="font-rem text-2xl px-4 py-6">Bir şeyler ters gitti.. Lütfen daha sonra tekrar deneyin.</p>
+          </div>
+        )
+      }
+    </main >
   );
 }
