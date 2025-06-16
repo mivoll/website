@@ -3,7 +3,7 @@ import { useWindowSize } from "react-use";
 import { useState } from "react";
 import { useNotification } from "./store";
 import logoInstagram from "../../assets/instagram.svg";
-import logoFaceboo from "../../assets/facebook.svg";
+import logoFacebook from "../../assets/facebook.svg";
 import logoLinkedin from "../../assets/linkedin.svg";
 
 export default function Main() {
@@ -57,13 +57,13 @@ export default function Main() {
   };
 
   return (
-    <main className="flex flex-col items-center justify-center text-center text-white px-4">
+    <main className="flex  flex-col items-center justify-center text-center text-white px-4">
       <h1 className={`${isNotificationVisible && 'animate-[heartbeat-text_1.5s_ease-in-out_infinite]'}
-        font-rem text-[#D2FF14] text-[90px] sm:text-[120px] mt-48`}>
+         mt-[110px] font-rem text-[#D2FF14] text-[50px] font-semibold lg:font-normal lg:text-[120px] lg:mt-48`}>
         ÇOK YAKINDA
       </h1>
 
-      <div className="font-rem text-[#f0f0f0] text-lg mt-5 leading-6">
+      <div className="font-rem text-[#f0f0f0] text-lg mt-12 leading-6">
         <p>
           Türkiye merkezli bir <span className="font-bold">yazılım ve dijital içerik</span> stüdyosu olan{" "}
           <span className="text-[#D2FF14] font-bold">Mivoll</span> yakında sizlerle!
@@ -73,14 +73,15 @@ export default function Main() {
       </div>
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-8 mt-16">
+      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-4 lg:gap-8 mt-16">
         <input
           type="text"
           name="message"
           placeholder="Mesajınızı Giriniz"
           value={formData.message}
           onChange={handleChange}
-          className="bg-[#101114] border-4 border-[#3a3a3a] text-white placeholder:text-[#7a7a7a] px-6 py-4 rounded-md w-72 focus:outline-none border-b-0 border-l-0"
+          className="bg-[#101114] border-4 border-[#3a3a3a] text-white placeholder:text-[#7a7a7a]
+          px-6 py-1.5 lg:py-4 rounded-xl w-72 focus:outline-none border-b-0 border-l-0 sm:py-20"
         />
         <input
           type="email"
@@ -88,7 +89,8 @@ export default function Main() {
           placeholder="Mail Adresi"
           value={formData.email}
           onChange={handleChange}
-          className="bg-[#101114] border-4 border-[#3a3a3a] text-white placeholder:text-[#7a7a7a] px-6 py-4 rounded-md w-72 focus:outline-none border-b-0 border-l-0"
+          className="bg-[#101114] border-4 border-[#3a3a3a] text-white placeholder:text-[#7a7a7a]
+          px-6 py-1.5 lg:py-4 rounded-xl w-72 focus:outline-none border-b-0 border-l-0"
         />
 
         <button
@@ -101,16 +103,16 @@ export default function Main() {
 
       {/* social media */}
       <div className="mt-12 w-screen flex items-center justify-center gap-16">
-        <a href="www.google.com">
+        <a href="https://www.instagram.com/mivoll.tr?igsh=Yjl2YjlidHFpYmp4" target="_blank">
           <img src={logoInstagram} alt="instagram logo" />
 
         </a>
-        <a href="www.google.com">
-          <img src={logoFaceboo} alt="instagram logo" />
+        <a href="www.google.com" target="_blank">
+          <img src={logoFacebook} alt="facebook logo" />
         </a>
 
-        <a href="www.google.com">
-          <img src={logoLinkedin} alt="instagram logo" />
+        <a href="www.google.com" target="_blank">
+          <img src={logoLinkedin} alt="linkedin logo" />
         </a>
       </div>
 

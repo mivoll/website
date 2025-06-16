@@ -1,4 +1,4 @@
-import mivollLogo from "../../assets/mivoll1.png";
+import mivollLogo from "../../assets/mivoll-logo.svg";
 import { useNotification } from "./store";
 
 export default function Header() {
@@ -56,7 +56,8 @@ export default function Header() {
       </style>
 
       <div>
-        <div className={`fixed w-[666px] h-[666px]
+        {/* gree bulp 1 */}
+        <div className={`fixed lg:w-[666px] lg:h-[666px] sm:w-[555px] sm:h-[555px]
           ${isNotificationVisible ?
             'animate-[heartbeat_1.5s_ease-in-out_infinite]' :
             'animate-[breathe_6s_ease-in-out_infinite]'}
@@ -64,7 +65,8 @@ export default function Header() {
           bottom-[-200px] blur-[300px] 
           pointer-events-none z-0`} />
 
-        <div className={`fixed w-[666px] h-[666px]
+        {/* gree bulp 2 */}
+        <div className={`fixed lg:w-[666px] lg:h-[666px] sm:w-[555px] sm:h-[555px]
           ${isNotificationVisible ?
             'animate-[heartbeat_1.5s_ease-in-out_infinite]' :
             'animate-[breathe_6s_ease-in-out_infinite]'}
@@ -72,19 +74,19 @@ export default function Header() {
           top-[-200px] blur-[300px] 
           pointer-events-none z-0`} />
 
-        <div className="bg-black/7 border-t-0 text-[#cccccc] flex border border-[#D2FF1447] items-center justify-center mx-50 rounded-b-4xl z-10 relative gap-40">
-          <img src={mivollLogo} alt="mivoll logo" width="65px" />
+        <div className="bg-black/7 border-t-0 text-[#cccccc] flex border border-[#D2FF1447] items-center justify-center mx-50 rounded-b-[45px] z-10 gap-40">
+          <img className="my-7" src={mivollLogo} alt="mivoll logo" border width="65px" />
           <a href="/">
-            <span className="font-montserrat font-bold">Ana Sayfa</span>
+            <span className="font-montserrat text-[18px] font-bold">Ana Sayfa</span>
           </a>
           <a href="/">
-            <span className="font-rem font-bold">Hakkımızda</span>
+            <span className="font-rem text-[18px] font-bold">Hakkımızda</span>
           </a>
           <a href="/">
-            <span className="font-montserrat font-bold">Hizmetlerimiz</span>
+            <span className="font-rem text-[18px] font-bold">Hizmetlerimiz</span>
           </a>
           <a href="/">
-            <span className="font-montserrat font-bold">Portföy</span>
+            <span className="font-montserrat text-[18px]  font-bold">Portföy</span>
           </a>
 
           <div className="font-montserrat font-bold text-[#D2FF14] border bg-[#1D1E2480] border-[#D2FF14] rounded-full px-5 shadow-black flex text-center shadow-md/40">
