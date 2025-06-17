@@ -107,11 +107,11 @@ export default function Main() {
           <img src={logoInstagram} alt="instagram logo" />
 
         </a>
-        <a href="www.google.com" target="_blank">
+        <a href="https://www.facebook.com/people/Mivoll/61577316533568/" target="_blank">
           <img src={logoFacebook} alt="facebook logo" />
         </a>
 
-        <a href="www.google.com" target="_blank">
+        <a href="https://www.linkedin.com/company/mivoll/" target="_blank">
           <img src={logoLinkedin} alt="linkedin logo" />
         </a>
       </div>
