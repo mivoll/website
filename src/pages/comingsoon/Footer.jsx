@@ -1,4 +1,4 @@
-import mivollMascot from "../../assets/mivoll-maskot.png";
+import mivollMascot from "../../assets/mivoll-maskot.webp";
 
 export default function Footer() {
   return (
