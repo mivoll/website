@@ -118,36 +118,36 @@ export default function Header() {
         </div>
 
         {/* mobile */}
-        <div className="sm:hidden flex mt-12 justify-between w-screen fixed items-center ">
+        <div className="sm:hidden flex mt-15 justify-between w-screen fixed items-center ">
           <a href="https://mivoll.com">
-            <img className="mx-7" src={mivollLogo} alt="mivol logo" width={65} />
+            <img className="mx-10" src={mivollLogo} alt="mivol logo" width={65} />
           </a>
           {isbuttonHamburderClicked ?
             <button onClick={handleClick}>
-              <div className="flex mx-7 items-center justify-center h-[35px] w-[35px] bg-[#d2ff14]
+              <div className="flex mx-10 items-center justify-center h-[50px] w-[50px] bg-[#d2ff14]
                 shadow-2xl/30
-                rounded-full ">
-                <div className="h-[14px] w-[18px]">
-                  <div className="h-[2px] w-[9px] bg-[#2a2a2a] rounded-full transition-transform duration-500 transform rotate-45" />
-                  <div className="h-[2px] w-[18px] bg-[#2a2a2a] rounded-full mt-[4px] transition-transform duration-500 transform -rotate-45" />
+                rounded-full transition-transform duration-500 transform rotate-0">
+                <div className="h-[20px] w-[33px]">
+                  <div className="h-[3px] w-[19px] mt-[2.5px] bg-[#2a2a2a] rounded-full transition-transform duration-500 transform rotate-225" />
+                  <div className="h-[3px] w-[36px] bg-[#2a2a2a] -mx-[1px] mt-[4px] rounded-full transition-transform duration-500 transform -rotate-45" />
                   <div className="flex">
-                    <div className="h-[2px] w-[9px] bg-[#d2ff14] rounded-full mt-[4px]" />
-                    <div className="h-[2px] w-[9px] bg-[#2a2a2a] rounded-full mt-[4px] transition-transform duration-500 transform rotate-45" />
+                    <div className="h-[3px] w-[15px] bg-[#d2ff14] rounded-full mt-[5px]" />
+                    <div className="h-[3px] w-[18px] bg-[#2a2a2a] rounded-full mt-[4px] transition-transform duration-500 transform rotate-405" />
                   </div>
                 </div>
               </div>
             </button>
             :
             <button onClick={handleClick}>
-              <div className="flex mx-7 items-center justify-center h-[35px] w-[35px] bg-[#d2ff14]
+              <div className="flex mx-10 items-center justify-center h-[50px] w-[50px] bg-[#d2ff14]
                 shadow-2xl/30
                 rounded-full transition-transform duration-500 transform rotate-0">
-                <div className="h-[14px] w-[18px]">
-                  <div className="h-[2px] w-[9px] bg-[#2a2a2a] rounded-full transition-transform duration-500 transform rotate-0" />
-                  <div className="h-[2px] w-[18px] bg-[#2a2a2a] rounded-full mt-[4px] transition-transform duration-500 transform rotate-0" />
+                <div className="h-[20px] w-[30px]">
+                  <div className="h-[3px] w-[15px] mt-[1px] bg-[#2a2a2a] rounded-full transition-transform duration-500 transform rotate-0" />
+                  <div className="h-[3px] w-[30px] bg-[#2a2a2a] mt-[5px] rounded-full transition-transform duration-500 transform rotate-0" />
                   <div className="flex">
-                    <div className="h-[2px] w-[9px] bg-[#d2ff14] rounded-full mt-[4px]" />
-                    <div className="h-[2px] w-[9px] bg-[#2a2a2a] rounded-full mt-[4px] transition-transform duration-500 transform rotate-0" />
+                    <div className="h-[3px] w-[15px] bg-[#d2ff14] rounded-full mt-[5px]" />
+                    <div className="h-[3px] w-[15px] bg-[#2a2a2a] rounded-full mt-[5px] transition-transform duration-500 transform rotate-0" />
                   </div>
                 </div>
               </div>

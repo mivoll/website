@@ -2,9 +2,6 @@ import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
 import { useState } from "react";
 import { useNotification } from "./store";
-import logoInstagram from "../../assets/instagram.svg";
-import logoFacebook from "../../assets/facebook.svg";
-import logoLinkedin from "../../assets/linkedin.svg";
 
 export default function Main() {
   const [formData, setFormData] = useState({
@@ -57,31 +54,31 @@ export default function Main() {
   };
 
   return (
-    <main className="flex  flex-col items-center justify-center text-center text-white px-4">
-      <h1 className={`${isNotificationVisible && 'animate-[heartbeat-text_1.5s_ease-in-out_infinite]'}
-         mt-[110px] font-rem text-[#D2FF14] text-[50px] font-semibold lg:font-normal lg:text-[120px] lg:mt-48`}>
+    <main className="flex flex-col items-center justify-center text-center text-white px-4 pt-15">
+      <h1 className={`${isNotificationVisible ? 'animate-[heartbeat-text_1.5s_ease-in-out_infinite]' : "animate-pulse"}
+        mt-[110px] sm:mt-[110px] font-rem text-[#D2FF14] text-[45px] font-semibold lg:font-normal lg:text-[120px] lg:mt-48`}>
         ÇOK YAKINDA
       </h1>
 
-      <div className="font-rem text-[#f0f0f0] text-lg mt-12 leading-6">
+      <div className="font-rem text-[#f0f0f0] text-lg mt-12 leading-6 mx-10">
         <p>
           Türkiye merkezli bir <span className="font-bold">yazılım ve dijital içerik</span> stüdyosu olan{" "}
           <span className="text-[#D2FF14] font-bold">Mivoll</span> yakında sizlerle!
+          Dijital dünyada fark yaratmaya hazırlanıyoruz. O zamana kadar bizimle mail
+          üzerinden iletişime geçebilirsiniz.
         </p>
-        <p>Dijital dünyada fark yaratmaya hazırlanıyoruz. O zamana kadar bizimle mail</p>
-        <p>üzerinden iletişime geçebilirsiniz.</p>
       </div>
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-4 lg:gap-8 mt-16">
+      <form onSubmit={handleSubmit} className="flex flex-col lg:flex-row items-center gap-7 lg:gap-8 mt-16">
         <input
           type="email"
           name="email"
           placeholder="Mail Adresi"
           value={formData.email}
           onChange={handleChange}
-          className="bg-[#101114] border-4 border-[#3a3a3a] text-white placeholder:text-[#7a7a7a]
-          px-6 py-1.5 md:py-4 lg:py-4 rounded-xl w-72 focus:outline-none border-b-0 border-l-0"
+          className="bg-[#101114] w-5/4 border-4 border-[#3a3a3a] text-white placeholder:text-[#7a7a7a]
+          px-6 py-1.5 md:py-4 lg:py-4 rounded-xl lg:w-72 focus:outline-none border-b-0 border-l-0"
         />
         <textarea
           type="text"
@@ -89,32 +86,19 @@ export default function Main() {
           placeholder="Mesajınızı Giriniz"
           value={formData.message}
           onChange={handleChange}
-          className="bg-[#101114] border-4 border-[#3a3a3a] text-white placeholder:text-[#7a7a7a]
-          px-6 pb-20 pt-4 md:py-1 lg:py-1 rounded-xl w-72 focus:outline-none border-b-0 border-l-0 resize-none"
+          className="bg-[#101114] w-5/4 border-4 border-[#3a3a3a] text-white placeholder:text-[#7a7a7a]
+          px-6 pb-20 pt-4 md:py-1 lg:py-1 rounded-xl lg:w-72 focus:outline-none border-b-0 border-l-0 resize-none"
         />
 
         <button
           type="submit"
-          className="font-poppins border-4 border-[#3a3a3a] border-b-0 border-l-0 bg-[#101114]  text-[#D2FF14] px-6 py-4 rounded-md hover:bg-[#D2FF14] hover:text-[#101114]  transition-colors"
+          className="font-poppins border-4 border-[#3a3a3a] border-b-0 border-l-0 bg-[#101114] text-[#D2FF14]
+          px-6 py-1 lg:px-6 lg:py-4 rounded-md hover:bg-[#D2FF14] hover:text-[#101114]  transition-colors"
         >
           Gönder
         </button>
       </form>
 
-      {/* social media */}
-      <div className="mt-12 w-screen flex items-center justify-center gap-16">
-        <a href="https://www.instagram.com/mivoll.tr?igsh=Yjl2YjlidHFpYmp4" target="_blank">
-          <img src={logoInstagram} alt="instagram logo" />
-
-        </a>
-        <a href="https://www.facebook.com/people/Mivoll/61577316533568/" target="_blank">
-          <img src={logoFacebook} alt="facebook logo" />
-        </a>
-
-        <a href="https://www.linkedin.com/company/mivoll/" target="_blank">
-          <img src={logoLinkedin} alt="linkedin logo" />
-        </a>
-      </div>
 
       {/* mail sent confirmation notification */}
       {
