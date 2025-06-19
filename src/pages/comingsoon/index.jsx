@@ -323,7 +323,7 @@ export default function Index() {
           <div className=" flex items-center justify-center text-center w-screen h-2/9 ">
             <p className="
             {/* default screen */}
-              text-[14px] mx-3 text-white max-w-4xl
+              text-[14px] mx-11 text-white max-w-4xl
             {/* >= sm */}
               sm:text-[20px]
             {/* >= md */}
@@ -337,7 +337,7 @@ export default function Index() {
           </div>
 
           {/* Form */}
-          <div className="flex w-screen h-3/9 justify-center items-start">
+          <div className="flex w-screen h-3/9 justify-center items-start mt-10">
             <form onSubmit={handleSubmit} className="
             {/* default screen */}
               flex flex-col items-center gap-1
