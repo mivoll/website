@@ -165,10 +165,32 @@ export default function Index() {
 
         <div className="h-screen">
 
+          {/* mail sent confirmation notification */}
+          {
+            isNotificationVisible && (
+              <div>
+                <Confetti width={screenWidth} height={screenHeight} gravity={0.08} />
+                {/* <div className="bg-black text-[#cccccc] fixed top-1/8 tranform translate-x-[-50%] border border-[#D2FF1447] items-center justify-center rounded-4xl"> */}
+                {/*   <h3 className="font-rem font-bold text-3xl px-4 pt-6">Teşekkürler!</h3> */}
+                {/*   <p className="font-rem text-2xl px-4 leading-7">Mailiniz gönderilmiştir 🚀 </p> */}
+                {/*   <p className="font-rem text-xl px-4 pb-6">Size en kısa zamanda dönüş sağlayacağız.</p> */}
+                {/* </div> */}
+              </div>
+            )
+          }
+          {
+            isErrorNotificationVisible && (
+              <div className="bg-black/7 text-[#cccccc] fixed top-1/8 border border-[#D2FF1447] items-center justify-center rounded-4xl ">
+                <p className="font-rem text-2xl px-4 py-6">Bir şeyler ters gitti.. Lütfen daha sonra tekrar deneyin.</p>
+              </div>
+            )
+          }
+
           {/* padding */}
           <div className="w-screen min-h-5 md:min-h-0">
           </div>
 
+          {/* header */}
           {/* mivoll logo + hamburger button */}
           <div className="flex justify-between w-screen h-1/12">
 
@@ -176,8 +198,8 @@ export default function Index() {
             <div className="
             {/* default screen */}
               flex items-center justify-center h-full max-w-30 ml-7
-            {/* >=sm */}
-              sm:hidden
+            {/* >=md */}
+              md:hidden
             "
             >
               <a href="https://mivoll.com">
@@ -185,12 +207,54 @@ export default function Index() {
               </a>
             </div>
 
+            {/* header bar */}
+            <div className="flex items-center justify-center w-screen">
+              <div className="
+                hidden 
+                // sm
+                md:flex md:w-screen md:h-20
+                md:bg-black/10 md:border-t-0 md:text-[#cccccc] md:border md:border-[#D2FF1447]
+                md:items-center md:justify-center md:mx-25 md:rounded-b-[45px] md:gap-40 max-w-300
+              ">
+
+                <div className="flex flex-row justify-between items-center w-screen px-10">
+                  <a href="https://mivoll.com">
+                    <img className="my-7" src={mivollLogo} alt="mivoll logo" border width="65px" />
+                  </a>
+                  <a href="/">
+                    <span className="font-montserrat text-[18px] font-bold">
+                      Ana Sayfa
+                    </span>
+                  </a>
+                  <a href="/">
+                    <span className="font-rem text-[18px] font-bold">
+                      Hakkımızda
+                    </span>
+                  </a>
+                  <a href="/">
+                    <span className="font-rem text-[18px] font-bold">
+                      Hizmetlerimiz
+                    </span>
+                  </a>
+                  <a href="/">
+                    <span className="font-montserrat text-[18px]  font-bold">
+                      Portföy
+                    </span>
+                  </a>
+
+                  <div className="font-montserrat font-bold text-[#D2FF14] border bg-[#1D1E2480] border-[#D2FF14] rounded-full px-5 shadow-black flex text-center shadow-md/40">
+                    <a href="/">İletişim</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* hamburger button */}
             <div className="
             {/* default screen */}
               flex items-center justify-center h-full max-w-30 mr-7
-            {/* >=sm */}
-              sm:hidden
+            {/* >=md */}
+              md:hidden
             ">
               {isbuttonHamburderClicked ?
                 <button onClick={handleClick}>
@@ -224,6 +288,7 @@ export default function Index() {
                 </button>
               }
             </div>
+
           </div>
 
 
@@ -272,7 +337,7 @@ export default function Index() {
           </div>
 
           {/* Form */}
-          <div className="flex w-screen h-3/9 justify-center">
+          <div className="flex w-screen h-3/9 justify-center items-start">
             <form onSubmit={handleSubmit} className="
             {/* default screen */}
               flex flex-col items-center gap-1
@@ -287,9 +352,9 @@ export default function Index() {
                 className="
                 {/* default screen */}
                   bg-[#101114] w-75 border-4 border-[#3a3a3a] text-white placeholder:text-[#7a7a7a] placeholder:text-xs
-                  px-3 py-1 rounded-xl focus:outline-none border-b-0 border-l-0
+                  px-3 py-1 rounded-xl focus:outline-none border-b-0 border-l-0 
                 {/* >= sm */}
-                  sm:w-72 sm:py-4 
+                sm:w-72 sm:placeholder:text-lg h-10
                 {/* >= md */}
                   md:w-72 md:py-4 
                 {/* >= lg */}
@@ -308,7 +373,7 @@ export default function Index() {
                 bg-[#101114] w-75 border-4 border-[#3a3a3a] text-white placeholder:text-[#7a7a7a] placeholder:text-xs
                 px-3 pb-8 pt-1 rounded-xl focus:outline-none border-b-0 border-l-0 resize-none
               {/* >= sm */}
-                sm:py-1 sm:w-72 
+                sm:w-72 sm:placeholder:text-lg h-10
               {/* >= md */}
                 md:py-1 md:w-72 
               {/* >= lg */}
@@ -327,11 +392,9 @@ export default function Index() {
               font-poppins border-4 border-[#3a3a3a] border-b-0 border-l-0 bg-[#101114] text-[#D2FF14] text-xs
               px-6 py-1 rounded-md hover:bg-[#D2FF14] hover:text-[#101114] transition-colors
               {/* >= sm */}
-              sm:py-4 sm:px-6
+              sm:py-2.5 sm:px-6
               {/* >= md */}
-              md:py-4 md:px-6
               {/* >= lg */}
-              lg:py-4 lg:px-6
               "
                 type="submit"
               >
@@ -339,26 +402,6 @@ export default function Index() {
               </button>
             </form>
 
-            {/* mail sent confirmation notification */}
-            {
-              isNotificationVisible && (
-                <div>
-                  <Confetti width={screenWidth} height={screenHeight} gravity={0.08} />
-                  <div className="bg-black/7 text-[#cccccc] fixed top-1/8 tranform translate-x-[-50%] border border-[#D2FF1447] items-center justify-center rounded-4xl">
-                    <h3 className="font-rem font-bold text-3xl px-4 pt-6">Teşekkürler!</h3>
-                    <p className="font-rem text-2xl px-4 leading-7">Mailiniz gönderilmiştir 🚀 </p>
-                    <p className="font-rem text-xl px-4 pb-6">Size en kısa zamanda dönüş sağlayacağız.</p>
-                  </div>
-                </div>
-              )
-            }
-            {
-              isErrorNotificationVisible && (
-                <div className="bg-black/7 text-[#cccccc] fixed top-1/8 border border-[#D2FF1447] items-center justify-center rounded-4xl ">
-                  <p className="font-rem text-2xl px-4 py-6">Bir şeyler ters gitti.. Lütfen daha sonra tekrar deneyin.</p>
-                </div>
-              )
-            }
           </div>
 
           {/* footer */}
